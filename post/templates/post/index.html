@@ -1,0 +1,40 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+    .container {
+        display: flex;
+        gap: 2;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 100%;
+        margin-bottom: 20px
+    }
+
+    .card {
+        width: 100%;
+        padding: 30px;
+        box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+
+    }
+</style>
+<div>
+    {% for post in news %}
+    <div class="container">
+        <a href="{{ post.get_absolute_url }}">
+            <div class="card">
+                <h2>{{post}}</h2>
+                <h5>{{post.author}}</h5>
+                <h6>{{ post.publish}}</h6>
+
+            </div>
+        </a>
+    </div>
+    {% endfor %}
+    {% include "post/pagination.html" with page=news %}
+</div>
+
+{% endblock content %}
