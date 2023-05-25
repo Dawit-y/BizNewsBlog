@@ -1,0 +1,43 @@
+<!-- Comment List Start -->
+{% load static %}
+{% load sass_tags %}
+{% block content %}
+<div class="mb-3">
+    <div class="section-title mb-0">
+        <h4 class="m-0 text-uppercase font-weight-bold">{{ count}} Comments</h4>
+    </div>
+
+    <div class="bg-white border border-top-0 p-4">
+        {% for comment in post.comment_set.all %}
+        <div class="media">
+            <img src="img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
+            <div class="media-body">
+                <h6><a class="text-secondary font-weight-bold" href="">{{ comment.writer}}</a>
+                    <small><i>{{comment.created|date }}</i></small>
+                </h6>
+                <p>{{ comment.text }}</p>
+                <!-- <form method="POST">
+                    {% csrf_token %}
+                    <input type="text" name="reply" id="">
+                    <button class="btn btn-sm btn-outline-secondary">Reply</button>
+                </form> -->
+                <!-- <div class="media mt-4">
+                    <img src="img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
+                    <div class="media-body">
+                        <h6><a class="text-secondary font-weight-bold" href="">John Doe</a> <small><i>01 Jan
+                                    2045</i></small></h6>
+                        <p>Diam amet duo labore stet elitr invidunt ea clita ipsum voluptua, tempor
+                            labore accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed sed
+                            eirmod ipsum.</p>
+                        <button class="btn btn-sm btn-outline-secondary">Reply</button>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        {% endfor %}
+
+
+    </div>
+</div>
+{% endblock content %}
+<!-- Comment List End -->

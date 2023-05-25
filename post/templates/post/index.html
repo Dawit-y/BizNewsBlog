@@ -22,7 +22,7 @@
     }
 </style>
 <div>
-    {% for post in news %}
+    {% for post in posts %}
     <div class="container">
         <a href="{{ post.get_absolute_url }}">
             <div class="card">
@@ -34,7 +34,7 @@
         </a>
     </div>
     {% endfor %}
-    {% include "post/pagination.html" with page=news %}
+    {% include "post/pagination.html" with page=posts %}
 </div>
 
 {% endblock content %}

@@ -1,10 +1,6 @@
-import re
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
-# Create your models here.
-# def get_profile_image_filepath(self, filename):
-#     return f'profile_images/{self.pk}/{"profile_image.png"}'
 class UserManager(BaseUserManager):
     def create_user(self, email, username, password=None):
         if not email:
@@ -64,4 +60,5 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.user.username
+
 
